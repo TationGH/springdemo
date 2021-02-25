@@ -5,7 +5,10 @@
     http://www.springframework.org/schema/beans/spring-beans-3.2.xsd">
     <!-- 由 Spring容器创建该类的实例对象 -->
     <bean id="personDao" class="com.ioc.impl.PersonDaoImpl">
-        <constructor-arg name="id" value="101"/>
-        <constructor-arg name="name" value="Zts"/>
+        <!-- 将personDao实例注入personService实例中 -->
+        <property name="user" ref="User">
+            <constructor-arg name="id" value="101"/>
+            <constructor-arg name="name" value="Zts"/>
+        </property>
     </bean>
 </beans>

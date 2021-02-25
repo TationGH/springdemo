@@ -1,18 +1,18 @@
 package com.ioc.impl;
 
 import com.ioc.PersonDao;
+import com.ioc.dto.User;
 
 public class PersonDaoImpl implements PersonDao {
-    private int id;
-    private String name;
+    private  User user;
 
-    public PersonDaoImpl(int id, String name) {
-        this.id = id;
-        this.name = name;
+    // 提供set()方法，用于依赖注入
+    public void setUser(User user) {
+        this.user = user;
     }
 
     @Override
     public void print() {
-        System.out.println(id + name);
+        System.out.println("Hello World!" + user.toString());
     }
 }
